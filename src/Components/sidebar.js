@@ -9,3 +9,17 @@ const SideBar = props => {
     </div>
   );
 };
+
+export default SideBar;
+{
+  /* <a
+href=""
+className={
+  props.locations.isSelected
+    ? `${props.locations.name} selected`
+    : props.locations.name
+}
+>
+{props.locations.name}
+</a> */
+}
