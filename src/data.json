@@ -1,0 +1,136 @@
+{
+  "name": "WCC_PublicWifi",
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [144.72855289777, -37.8995664147136]
+      },
+      "properties": {
+        "ID": 1,
+        "Location": "Featherbrook Commnity Centre",
+        "Wifi_Name": "WCC Public",
+        "Status": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [144.729559190887, -37.8620858955019]
+      },
+      "properties": {
+        "ID": 2,
+        "Location": "Arndell Park Community Centre",
+        "Wifi_Name": "WCC Public",
+        "Status": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [144.664567842057, -37.9007621644116]
+      },
+      "properties": {
+        "ID": 3,
+        "Location": "Kelly Park Centre",
+        "Wifi_Name": "WCC Public",
+        "Status": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [144.675199337772, -37.8381705249708]
+      },
+      "properties": {
+        "ID": 4,
+        "Location": "Penrose Promenade Community Centre",
+        "Wifi_Name": "WCC Public",
+        "Status": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [144.770338056618, -37.9109317915432]
+      },
+      "properties": {
+        "ID": 5,
+        "Location": "Saltwater",
+        "Wifi_Name": "WCC Public",
+        "Status": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [144.681864687911, -37.8754040602565]
+      },
+      "properties": {
+        "ID": 6,
+        "Location": "Plaza Library",
+        "Wifi_Name": "Plaza Library",
+        "Status": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [144.65783128496, -37.9038729577608]
+      },
+      "properties": {
+        "ID": 7,
+        "Location": "Werribee Library",
+        "Wifi_Name": "Werribee Library",
+        "Status": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [144.695596512196, -37.8355295002163]
+      },
+      "properties": {
+        "ID": 8,
+        "Location": "Tarneit Library",
+        "Wifi_Name": "Tarneit Library",
+        "Status": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [144.605366318243, -37.8762311285164]
+      },
+      "properties": {
+        "ID": 9,
+        "Location": "Wyndham Vale Library",
+        "Wifi_Name": "Wyndham Vale Library",
+        "Status": "1"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [144.735782686339, -37.8821849786958]
+      },
+      "properties": {
+        "ID": 10,
+        "Location": "Point Cook Library",
+        "Wifi_Name": "Point Cook Library",
+        "Status": "1"
+      }
+    }
+  ]
+}
