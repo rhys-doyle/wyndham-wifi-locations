@@ -10,3 +10,14 @@ const simplifyContent = data => {
   }));
   return newData;
 };
+
+export default class Map extends React.Component {
+  state = {
+    wifiPoints: simplifyContent(data)
+  };
+
+  render() {
+    console.log(this.state);
+    return <div>map</div>;
+  }
+}
