@@ -25,8 +25,8 @@ export default class Map extends React.Component {
     const map = new mapboxgl.Map({
       container: this.mapContainer,
       style: "mapbox://styles/mapbox/dark-v9",
-      center: [1, 1],
-      zoom: 1.5
+      center: [-215.3, -37.96],
+      zoom: 10.5
     });
   }
 
