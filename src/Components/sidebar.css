@@ -2,5 +2,27 @@
   color: white;
   background-color: #3b3939;
   height: 100vw;
-  max-width: 250px;
+  max-width: 300px;
+  font-family: "Titillium Web", sans-serif;
+  font-size: 2.1rem;
+  line-height: 3rem;
+}
+
+.title {
+  margin: 0 auto;
+  padding: 25px 0 40px 20px;
+}
+
+.hotspot {
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  line-height: 1.8rem;
+  display: block;
+  padding: 0 0 0 20px;
+}
+
+.hotspot:hover {
+  text-decoration: underline;
+  color: #1dcead;
 }
