@@ -1,6 +1,7 @@
 import React from "react";
 import data from "../data.json";
 import mapboxgl from "mapbox-gl";
+import Sidebar from "./sidebar";
 import "./map.css";
 
 const simplifyContent = data => {
@@ -33,8 +34,11 @@ export default class Map extends React.Component {
   render() {
     console.log(this.state);
     return (
-      <div className="mapContainerParent">
-        <div className="mapContainer" ref={el => (this.mapContainer = el)} />
+      <div className="mapAndSidebar">
+        <Sidebar wifiPoints={this.state.wifiPoints} />
+        <div className="mapContainerParent">
+          <div className="mapContainer" ref={el => (this.mapContainer = el)} />
+        </div>
       </div>
     );
   }
