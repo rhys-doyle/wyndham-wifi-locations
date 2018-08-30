@@ -39,12 +39,14 @@ export default class Map extends React.Component {
         type: "circle",
         source: "hotspots",
         paint: {
-          "circle-color": "#1dcead"
+          "circle-color": "#1dcead",
+          "circle-blur": 2,
+          "circle-radius": 7
         }
       });
     });
 
-    map.on("click", "hotspots", function(e) {
+    map.on("click", "hotspots", e => {
       var coordinates = e.features[0].geometry.coordinates.slice();
 
       // Ensure that if the map is zoomed out such that multiple
@@ -75,14 +77,12 @@ export default class Map extends React.Component {
   }
 
   handleLocationClick = id => {
-    console.log(id);
-    // find wifi point in this.state.wifiPoints by id
-    /*
-    new mapboxgl.Popup()
-        .setLngLat(coordinates)
-        .setHTML(e.features[0].properties.Wifi_Name)
-        .addTo(this.state.map);
-    */
+    const points = this.state.wifiPoints.find(obj => obj.id === id);
+
+    let popup = new mapboxgl.Popup()
+      .setLngLat(points.coordinates)
+      .setHTML(points.name)
+      .addTo(this.state.map);
   };
 
   render() {
