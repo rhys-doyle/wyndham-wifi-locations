@@ -73,12 +73,12 @@ export default class Map extends React.Component {
       });
     });
 
-    map.on("mouseenter", "hotspots", function() {
+    map.on("mouseenter", "hotspots", () => {
       map.getCanvas().style.cursor = "pointer";
     });
 
     // Change it back to a pointer when it leaves.
-    map.on("mouseleave", "hotspots", function() {
+    map.on("mouseleave", "hotspots", () => {
       map.getCanvas().style.cursor = "";
     });
 
