@@ -9,7 +9,15 @@ const Sidebar = props => {
       <div className="wyndhamLocations">
         {props.wifiPoints.map((hotspot, index) => {
           return (
-            <WifiLocation key={hotspot.id} index={index} name={hotspot.name} />
+            <WifiLocation
+              ssid={hotspot.ssid}
+              marker={props.marker}
+              key={hotspot.id}
+              index={index}
+              name={hotspot.name}
+              onClick={props.onClick}
+              id={hotspot.id}
+            />
           );
         })}
       </div>
