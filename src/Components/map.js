@@ -59,7 +59,11 @@ export default class Map extends React.Component {
 
       new mapboxgl.Popup()
         .setLngLat(coordinates)
-        .setHTML(e.features[0].properties.Wifi_Name)
+        .setHTML(
+          `<span>${e.features[0].properties.Location}<br><span>SSID: ${
+            e.features[0].properties.Wifi_Name
+          }</span></span>`
+        )
         .addTo(map);
     });
 
