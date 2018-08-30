@@ -65,6 +65,12 @@ export default class Map extends React.Component {
           }</span></span>`
         )
         .addTo(map);
+
+      map.easeTo({
+        center: coordinates,
+        zoom: 13,
+        duration: 1600
+      });
     });
 
     map.on("mouseenter", "hotspots", function() {
