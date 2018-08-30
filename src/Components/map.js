@@ -101,7 +101,9 @@ export default class Map extends React.Component {
       anchor: "bottom"
     })
       .setLngLat(points.coordinates)
-      .setHTML(points.name)
+      .setHTML(
+        `<span>${points.name}<br><span>SSID: ${points.ssid}</span></span>`
+      )
       .addTo(this.state.map);
 
     const storedPopup = {
