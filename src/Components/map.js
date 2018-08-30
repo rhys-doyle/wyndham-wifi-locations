@@ -95,7 +95,11 @@ export default class Map extends React.Component {
 
     const points = this.state.wifiPoints.find(obj => obj.id === id);
 
-    let popup = new mapboxgl.Popup()
+    let popup = new mapboxgl.Popup({
+      closeButton: false,
+      offset: 5,
+      anchor: "bottom"
+    })
       .setLngLat(points.coordinates)
       .setHTML(points.name)
       .addTo(this.state.map);
