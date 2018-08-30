@@ -28,8 +28,8 @@ export default class Map extends React.Component {
     const map = new mapboxgl.Map({
       container: this.mapContainer,
       style: "mapbox://styles/mapbox/dark-v9",
-      center: [-215.3, -37.96],
-      zoom: 10.5
+      center: [-215.32, -37.875],
+      zoom: 11.2
     });
 
     map.on("load", () => {
@@ -41,8 +41,8 @@ export default class Map extends React.Component {
         source: "hotspots",
         paint: {
           "circle-color": "#1dcead",
-          "circle-blur": 2,
-          "circle-radius": 7
+          "circle-blur": 1.5,
+          "circle-radius": 12
         }
       });
     });
