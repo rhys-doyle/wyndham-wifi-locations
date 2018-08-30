@@ -110,6 +110,14 @@ export default class Map extends React.Component {
       id: points.id
     };
 
+    const map = this.state.map;
+
+    map.easeTo({
+      center: points.coordinates,
+      zoom: 13,
+      duration: 1600
+    });
+
     this.setState({ storedPopup: storedPopup });
   };
 
