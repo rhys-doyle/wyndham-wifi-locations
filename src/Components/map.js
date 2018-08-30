@@ -20,7 +20,8 @@ mapboxgl.accessToken =
 export default class Map extends React.Component {
   state = {
     wifiPoints: simplifyContent(data),
-    map: null
+    map: null,
+    storedPopup: null
   };
 
   componentDidMount() {
@@ -77,12 +78,23 @@ export default class Map extends React.Component {
   }
 
   handleLocationClick = id => {
+    if (this.state.storedPopup) {
+      var elem = document.getElementsByClassName("mapboxgl-popup")[0];
+      elem.remove();
+    }
+
     const points = this.state.wifiPoints.find(obj => obj.id === id);
 
     let popup = new mapboxgl.Popup()
       .setLngLat(points.coordinates)
       .setHTML(points.name)
       .addTo(this.state.map);
+
+    const storedPopup = {
+      id: points.id
+    };
+
+    this.setState({ storedPopup: storedPopup });
   };
 
   render() {
