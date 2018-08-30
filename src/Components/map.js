@@ -19,7 +19,8 @@ mapboxgl.accessToken =
 
 export default class Map extends React.Component {
   state = {
-    wifiPoints: simplifyContent(data)
+    wifiPoints: simplifyContent(data),
+    map: null
   };
 
   componentDidMount() {
@@ -29,13 +30,68 @@ export default class Map extends React.Component {
       center: [-215.3, -37.96],
       zoom: 10.5
     });
+
+    map.on("load", () => {
+      console.log("string");
+      map.addSource("hotspots", { type: "geojson", data: data });
+      map.addLayer({
+        id: "hotspots",
+        type: "circle",
+        source: "hotspots",
+        paint: {
+          "circle-color": "#1dcead"
+        }
+      });
+    });
+
+    map.on("click", "hotspots", function(e) {
+      var coordinates = e.features[0].geometry.coordinates.slice();
+
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(e.features[0].properties.Wifi_Name)
+        .addTo(map);
+    });
+
+    map.on("mouseenter", "hotspots", function() {
+      map.getCanvas().style.cursor = "pointer";
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on("mouseleave", "hotspots", function() {
+      map.getCanvas().style.cursor = "";
+    });
+
+    this.setState({
+      map
+    });
   }
 
+  handleLocationClick = id => {
+    console.log(id);
+    // find wifi point in this.state.wifiPoints by id
+    /*
+    new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(e.features[0].properties.Wifi_Name)
+        .addTo(this.state.map);
+    */
+  };
+
   render() {
-    console.log(this.state);
     return (
       <div className="mapAndSidebar">
-        <Sidebar wifiPoints={this.state.wifiPoints} />
+        <Sidebar
+          wifiPoints={this.state.wifiPoints}
+          onClick={this.handleLocationClick}
+        />
         <div className="mapContainerParent">
           <div className="mapContainer" ref={el => (this.mapContainer = el)} />
         </div>
