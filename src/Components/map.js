@@ -88,9 +88,9 @@ export default class Map extends React.Component {
   }
 
   handleLocationClick = id => {
-    if (this.state.storedPopup) {
-      var elem = document.getElementsByClassName("mapboxgl-popup")[0];
-      elem.remove();
+    const popupElem = document.getElementsByClassName("mapboxgl-popup")[0];
+    if (this.state.storedPopup && popupElem) {
+      popupElem.remove();
     }
 
     const points = this.state.wifiPoints.find(obj => obj.id === id);
