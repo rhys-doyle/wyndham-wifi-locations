@@ -94,7 +94,7 @@ export default class Map extends React.Component {
 
   handleLocationClick = id => {
     const popupElem = document.getElementsByClassName("mapboxgl-popup")[0];
-    if (this.state.storedPopup && popupElem) {
+    if (popupElem) {
       popupElem.remove();
     }
 
@@ -111,10 +111,6 @@ export default class Map extends React.Component {
       )
       .addTo(this.state.map);
 
-    const storedPopup = {
-      id: points.id
-    };
-
     const map = this.state.map;
 
     map.easeTo({
@@ -122,8 +118,6 @@ export default class Map extends React.Component {
       zoom: 13,
       duration: 1600
     });
-
-    this.setState({ storedPopup: storedPopup });
   };
 
   render() {
