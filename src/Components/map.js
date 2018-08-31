@@ -82,7 +82,10 @@ export default class Map extends React.Component {
       map.getCanvas().style.cursor = "";
     });
 
-    map.addControl(new mapboxgl.NavigationControl(), "top-left");
+    map.addControl(
+      new mapboxgl.NavigationControl({ showCompass: false }),
+      "top-left"
+    );
 
     this.setState({
       map
