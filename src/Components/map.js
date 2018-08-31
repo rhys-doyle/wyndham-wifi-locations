@@ -3,6 +3,7 @@ import data from "../data.json";
 import mapboxgl from "mapbox-gl";
 import Sidebar from "./sidebar";
 import "./map.css";
+import DefaultZoom from "./defaultZoom";
 
 const simplifyContent = data => {
   const newData = data.features.map(obj => ({
@@ -20,8 +21,7 @@ mapboxgl.accessToken =
 export default class Map extends React.Component {
   state = {
     wifiPoints: simplifyContent(data),
-    map: null,
-    storedPopup: null
+    map: null
   };
 
   componentDidMount() {
@@ -92,6 +92,15 @@ export default class Map extends React.Component {
     });
   }
 
+  handleButton = () => {
+    const map = this.state.map;
+    map.easeTo({
+      center: [-215.32, -37.875],
+      zoom: 11.2,
+      duration: 1600
+    });
+  };
+
   handleLocationClick = id => {
     const popupElem = document.getElementsByClassName("mapboxgl-popup")[0];
     if (popupElem) {
@@ -128,7 +137,9 @@ export default class Map extends React.Component {
           onClick={this.handleLocationClick}
         />
         <div className="mapContainerParent">
-          <div className="mapContainer" ref={el => (this.mapContainer = el)} />
+          <div className="mapContainer" ref={el => (this.mapContainer = el)}>
+            <DefaultZoom handleButton={this.handleButton} />
+          </div>
         </div>
       </div>
     );
